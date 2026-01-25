@@ -91,7 +91,7 @@ export default function Home() {
 
       {/* About Section */}
       <Section id="about" title="À Propos de Moi" className="bg-white">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-2xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -114,7 +114,7 @@ export default function Home() {
             <div className="grid md:grid-cols-2 gap-8 mt-12">
               <div>
                 <h3 className="text-xl font-semibold mb-4">Ce Que Je Fais</h3>
-                <ul className="space-y-2 text-[var(--text-secondary)]">
+                <ul className="text-left space-y-2 text-[var(--text-secondary)]">
                   <li className="flex items-center gap-2">
                     <span className="w-2 h-2 bg-[var(--accent)] rounded-full"></span>
                     Développement avec le framework Symfony
@@ -136,7 +136,7 @@ export default function Home() {
               
               <div>
                 <h3 className="text-xl font-semibold mb-4">Mon Approche</h3>
-                <ul className="space-y-2 text-[var(--text-secondary)]">
+                <ul className="text-left space-y-2 text-[var(--text-secondary)]">
                   <li className="flex items-center gap-2">
                     <span className="w-2 h-2 bg-[var(--accent)] rounded-full"></span>
                     Développement axé sur la qualité
@@ -197,7 +197,7 @@ export default function Home() {
 
       {/* Portfolio Section */}
       <Section id="portfolio" title="Mon Portfolio" className="bg-white">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-2xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -216,7 +216,7 @@ export default function Home() {
             <div className="grid md:grid-cols-2 gap-8 mt-12">
               <div>
                 <h3 className="text-xl font-semibold mb-4">Expertise Technique</h3>
-                <ul className="space-y-2 text-[var(--text-secondary)]">
+                <ul className="text-left space-y-2 text-[var(--text-secondary)]">
                   <li className="flex items-center gap-2">
                     <span className="w-2 h-2 bg-[var(--accent)] rounded-full"></span>
                     Architecture d&apos;applications Symfony
@@ -238,7 +238,7 @@ export default function Home() {
               
               <div>
                 <h3 className="text-xl font-semibold mb-4">Valeurs</h3>
-                <ul className="space-y-2 text-[var(--text-secondary)]">
+                <ul className="text-left space-y-2 text-[var(--text-secondary)]">
                   <li className="flex items-center gap-2">
                     <span className="w-2 h-2 bg-[var(--accent)] rounded-full"></span>
                     Qualité et excellence du code
