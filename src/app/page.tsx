@@ -1,3 +1,5 @@
+"use client";
+
 import { useState, useEffect } from "react";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
@@ -6,7 +8,7 @@ import SakuraParticles from "@/components/SakuraParticles";
 import AdminVideoButton from "@/components/AdminVideoButton";
 import { getVideo } from "@/lib/videoStorage";
 
-const Index = () => {
+export default function Home() {
   const [customVideo, setCustomVideo] = useState<string | null>(null);
 
   useEffect(() => {
@@ -31,6 +33,4 @@ const Index = () => {
       />
     </main>
   );
-};
-
-export default Index;
+}
