@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
+import ProjectsSection from "@/components/ProjectsSection";
 import ContactSection from "@/components/ContactSection";
 import SakuraParticles from "@/components/SakuraParticles";
 import AdminVideoButton from "@/components/AdminVideoButton";
@@ -26,6 +27,7 @@ export default function Home() {
       <SakuraParticles />
       <HeroSection customVideoUrl={customVideo} />
       <AboutSection />
+      <ProjectsSection />
       <ContactSection />
       <AdminVideoButton 
         onVideoChange={setCustomVideo} 
