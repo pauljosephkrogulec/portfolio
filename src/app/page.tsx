@@ -6,7 +6,6 @@ import AboutSection from "@/components/AboutSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import ContactSection from "@/components/ContactSection";
 import SakuraParticles from "@/components/SakuraParticles";
-import AdminVideoButton from "@/components/AdminVideoButton";
 import { getVideo } from "@/lib/videoStorage";
 
 export default function Home() {
@@ -29,10 +28,6 @@ export default function Home() {
       <AboutSection />
       <ProjectsSection />
       <ContactSection />
-      <AdminVideoButton 
-        onVideoChange={setCustomVideo} 
-        currentVideo={customVideo} 
-      />
     </main>
   );
 }
