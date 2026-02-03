@@ -6,21 +6,12 @@ import { ExternalLink, Github, Code, Database, AlertTriangle } from "lucide-reac
 
 const projects = [
   {
-    title: "MangaDex Frontend",
-    description: "Application frontend moderne pour parcourir et lire des mangas. Construite avec React et offrant un design responsive pour une visualisation optimale sur tous les appareils.",
-    tech: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
-    githubUrl: "https://github.com/pauljosephkrogulec/mangadex-frontend",
+    title: "MangaDex",
+    description: "A comprehensive manga reading platform with full-stack architecture. Features a modern PWA frontend built with Next.js 15 and React 19, paired with a robust Symfony 7.2 API backend. The platform includes real-time updates, automatic admin interface, and supports multiple API formats including REST, GraphQL, and Hydra.",
+    tech: ["PHP 8.4", "Symfony 7.2", "Next.js 15", "React 19", "TypeScript", "API Platform", "PostgreSQL", "Tailwind CSS", "Docker", "Kubernetes"],
+    githubUrl: "https://github.com/pauljosephkrogulec/mangadex",
     liveUrl: null,
     icon: <Code className="h-6 w-6" />,
-    inDevelopment: true
-  },
-  {
-    title: "MangaDex Backend",
-    description: "API backend robuste servant des données de mangas avec une gestion efficace des données et des endpoints RESTful. Construite avec Symfony API Platform pour des performances optimales.",
-    tech: ["PHP", "Symfony", "API Platform", "SQLite"],
-    githubUrl: "https://github.com/pauljosephkrogulec/mangadex-backend",
-    liveUrl: null,
-    icon: <Database className="h-6 w-6" />,
     inDevelopment: true
   }
 ];
@@ -38,7 +29,7 @@ export default function ProjectsSection() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-1 gap-8">
           {projects.map((project, index) => (
             <Card 
               key={index} 
