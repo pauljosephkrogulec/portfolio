@@ -1,112 +1,172 @@
 "use client";
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { ExternalLink, Github, Code, Database, AlertTriangle } from "lucide-react";
+import { motion } from "framer-motion";
+import { Github, ExternalLink, AlertTriangle } from "lucide-react";
 
 const projects = [
   {
+    number: "01",
     title: "MangaDex",
-    description: "A comprehensive manga reading platform with full-stack architecture. Features a modern PWA frontend built with Next.js 15 and React 19, paired with a robust Symfony 7.2 API backend. The platform includes real-time updates, automatic admin interface, and supports multiple API formats including REST, GraphQL, and Hydra.",
-    tech: ["PHP 8.4", "Symfony 7.2", "Next.js 15", "React 19", "TypeScript", "API Platform", "PostgreSQL", "Tailwind CSS", "Docker", "Kubernetes"],
+    status: "En développement",
+    description:
+      "Plateforme de lecture de manga full-stack. Frontend PWA avec Next.js 15 et React 19, backend API robuste avec Symfony 7.2 et API Platform. Mises à jour en temps réel, interface d'administration automatique, support REST, GraphQL et Hydra.",
+    tech: ["PHP 8.4", "Symfony 7.2", "API Platform", "Next.js 15", "React 19", "TypeScript", "PostgreSQL", "Docker", "Kubernetes", "Tailwind CSS"],
     githubUrl: "https://github.com/pauljosephkrogulec/mangadex",
     liveUrl: null,
-    icon: <Code className="h-6 w-6" />,
-    inDevelopment: true
-  }
+  },
 ];
 
 export default function ProjectsSection() {
   return (
-    <section className="py-20 px-4 relative z-10">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-            Projets Vedettes
-          </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Voici quelques-uns de mes projets récents qui mettent en valeur mes compétences en développement full-stack
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-1 gap-8">
-          {projects.map((project, index) => (
-            <Card 
-              key={index} 
-              className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-border/50 bg-card/50 backdrop-blur-sm"
+    <section
+      id="projects"
+      className="relative py-32 px-6"
+      style={{ background: "var(--surface)" }}
+    >
+      <div className="mx-auto max-w-7xl">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 32 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-20 flex items-end justify-between border-b pb-8"
+          style={{ borderColor: "var(--border-light)" }}
+        >
+          <div>
+            <p className="section-label mb-3">02 — Projets</p>
+            <h2
+              className="font-display"
+              style={{ fontSize: "clamp(2.5rem, 6vw, 5rem)", lineHeight: 1 }}
             >
-              <CardHeader>
-                <div className="flex items-center gap-3 mb-2">
-                  <div className="p-2 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 text-white">
-                    {project.icon}
+              Réalisations
+            </h2>
+          </div>
+        </motion.div>
+
+        {/* Projects list */}
+        <div className="space-y-0">
+          {projects.map((project, i) => (
+            <motion.article
+              key={project.title}
+              initial={{ opacity: 0, y: 32 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: i * 0.1 }}
+              className="group relative border-b py-14"
+              style={{ borderColor: "var(--border-light)" }}
+            >
+              {/* Large background number */}
+              <span
+                className="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 select-none font-display leading-none opacity-[0.04] transition-opacity duration-500 group-hover:opacity-[0.08]"
+                style={{ fontSize: "12rem", color: "var(--accent)" }}
+                aria-hidden
+              >
+                {project.number}
+              </span>
+
+              <div className="relative grid gap-10 md:grid-cols-[1fr_1.6fr]">
+                {/* Left column */}
+                <div>
+                  <div className="flex items-center gap-3 mb-4">
+                    <span
+                      className="font-mono-custom text-xs tracking-widest"
+                      style={{ color: "var(--accent)" }}
+                    >
+                      {project.number}
+                    </span>
+                    {project.status && (
+                      <span
+                        className="flex items-center gap-1 font-mono-custom"
+                        style={{
+                          fontSize: "0.6rem",
+                          letterSpacing: "0.12em",
+                          textTransform: "uppercase",
+                          color: "#b8933a",
+                          background: "rgba(200,150,62,0.1)",
+                          border: "1px solid rgba(200,150,62,0.25)",
+                          padding: "0.25rem 0.6rem",
+                        }}
+                      >
+                        <AlertTriangle size={10} />
+                        {project.status}
+                      </span>
+                    )}
                   </div>
-                  <div className="flex-1">
-                    <CardTitle className="text-xl">{project.title}</CardTitle>
-                    {project.inDevelopment && (
-                      <div className="mt-1 inline-flex items-center gap-1 px-2 py-0.5 bg-yellow-500/20 text-yellow-700 dark:text-yellow-300 rounded-full text-xs font-medium">
-                        <AlertTriangle className="h-3 w-3" />
-                        En développement
-                      </div>
+
+                  <h3
+                    className="font-display mb-6 transition-colors duration-300 group-hover:text-[var(--accent-bright)]"
+                    style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", lineHeight: 1, color: "var(--text)" }}
+                  >
+                    {project.title}
+                  </h3>
+
+                  <div className="flex gap-3">
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-outline flex items-center gap-2"
+                      style={{ padding: "0.6rem 1.25rem" }}
+                    >
+                      <Github size={14} />
+                      Code
+                    </a>
+                    {project.liveUrl && (
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn-accent flex items-center gap-2"
+                        style={{ padding: "0.6rem 1.25rem" }}
+                      >
+                        <ExternalLink size={14} />
+                        Démo
+                      </a>
                     )}
                   </div>
                 </div>
-                <CardDescription className="text-base leading-relaxed">
-                  {project.description}
-                </CardDescription>
-              </CardHeader>
-              
-              <CardContent>
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.tech.map((tech, techIndex) => (
-                    <span 
-                      key={techIndex}
-                      className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-                
-                <div className="flex gap-3">
-                  <Button 
-                    variant="outline" 
-                    size="sm" 
-                    asChild
-                    className="group/btn flex-1"
+
+                {/* Right column */}
+                <div>
+                  <p
+                    className="font-body mb-8"
+                    style={{ color: "var(--text-muted)", fontSize: "0.9375rem", lineHeight: "1.75" }}
                   >
-                    <a 
-                      href={project.githubUrl} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-2"
-                    >
-                      <Github className="h-4 w-4 group-hover/btn:scale-110 transition-transform" />
-                      Voir le code
-                    </a>
-                  </Button>
-                  
-                  {project.liveUrl && (
-                    <Button 
-                      size="sm" 
-                      asChild
-                      className="group/btn flex-1"
-                    >
-                      <a 
-                        href={project.liveUrl} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="flex items-center justify-center gap-2"
-                      >
-                        <ExternalLink className="h-4 w-4 group-hover/btn:scale-110 transition-transform" />
-                        Démo
-                      </a>
-                    </Button>
-                  )}
+                    {project.description}
+                  </p>
+
+                  <div className="flex flex-wrap gap-2">
+                    {project.tech.map((t) => (
+                      <span key={t} className="tag">
+                        {t}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+            </motion.article>
           ))}
         </div>
+
+        {/* More projects CTA */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="mt-12 text-center"
+        >
+          <a
+            href="https://github.com/pauljosephkrogulec"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-outline inline-flex items-center gap-2"
+          >
+            <Github size={14} />
+            Voir tous les projets sur GitHub
+          </a>
+        </motion.div>
       </div>
     </section>
   );

@@ -1,69 +1,146 @@
+"use client";
+
 import { motion } from "framer-motion";
-import { Github, Twitter, Mail } from "lucide-react";
+import { Github, Twitter, Mail, MapPin, Phone } from "lucide-react";
 
 const socials = [
-  { icon: Github, label: "GitHub", href: "https://github.com/pauljosephkrogulec" },
-  { icon: Twitter, label: "Twitter", href: "http://x.com/Paul_josephK" },
-  { icon: Mail, label: "Email", href: "mailto:krogulec.work@gmail.com" },
+  { Icon: Github, label: "GitHub", href: "https://github.com/pauljosephkrogulec", handle: "pauljosephkrogulec" },
+  { Icon: Twitter, label: "Twitter / X", href: "http://x.com/Paul_josephK", handle: "@Paul_josephK" },
+  { Icon: Mail, label: "Email", href: "mailto:krogulec.work@gmail.com", handle: "krogulec.work@gmail.com" },
 ];
 
-const ContactSection = () => {
+const info = [
+  { Icon: Phone, text: "07 81 81 10 33" },
+  { Icon: MapPin, text: "Lambersart, 59130 — France" },
+];
+
+export default function ContactSection() {
   return (
-    <section id="contact" className="relative min-h-[60vh] bg-background px-6 py-24">
-      <div className="mx-auto max-w-4xl text-center">
+    <section id="contact" className="relative py-32 px-6" style={{ background: "var(--bg)" }}>
+      <div className="mx-auto max-w-7xl">
+        {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 32 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
           viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-20 border-b pb-8"
+          style={{ borderColor: "var(--border-light)" }}
         >
-          <p className="mb-4 font-body text-sm uppercase tracking-[0.3em] text-accent">
-            Contactez-moi
-          </p>
-          <h2 className="font-display text-4xl font-light md:text-5xl lg:text-6xl">
-            Entrons en <span className="text-gradient-moon">Contact</span>
+          <p className="section-label mb-3">03 — Contact</p>
+          <h2
+            className="font-display"
+            style={{ fontSize: "clamp(2.5rem, 6vw, 5rem)", lineHeight: 1 }}
+          >
+            Entrons en<br />
+            <span style={{ color: "var(--accent)" }}>Contact</span>
           </h2>
-          <p className="mx-auto mt-6 max-w-lg font-body text-muted-foreground">
-            Je suis toujours ravi de rencontrer d'autres développeurs et d'apprendre de la communauté.
-            N'hésitez pas à me contacter !
-          </p>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          viewport={{ once: true }}
-          className="mt-12 flex justify-center gap-6"
-        >
-          {socials.map((social, index) => (
-            <motion.a
-              key={social.label}
-              href={social.href}
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.4, delay: 0.4 + index * 0.1 }}
-              viewport={{ once: true }}
-              whileHover={{ scale: 1.1, y: -5 }}
-              className="glass-card group flex h-16 w-16 items-center justify-center transition-all duration-300 hover:glow-moon"
+        <div className="grid gap-20 md:grid-cols-[1.2fr_1fr]">
+          {/* Left */}
+          <motion.div
+            initial={{ opacity: 0, x: -24 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
+            <p
+              className="font-body mb-10 max-w-md"
+              style={{ color: "var(--text-muted)", fontSize: "1.0625rem", lineHeight: "1.75" }}
             >
-              <social.icon className="h-6 w-6 text-muted-foreground transition-colors duration-300 group-hover:text-accent" />
-            </motion.a>
-          ))}
-        </motion.div>
+              Disponible pour des missions freelance, des opportunités en CDI
+              ou simplement échanger autour du développement back-end.
+              N'hésitez pas à me contacter.
+            </p>
 
-        <motion.p
+            <a href="mailto:krogulec.work@gmail.com" className="btn-accent">
+              Envoyer un message
+            </a>
+          </motion.div>
+
+          {/* Right */}
+          <motion.div
+            initial={{ opacity: 0, x: 24 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="space-y-8"
+          >
+            {/* Info */}
+            <div className="space-y-3">
+              {info.map(({ Icon, text }) => (
+                <div
+                  key={text}
+                  className="flex items-center gap-3 font-body"
+                  style={{ color: "var(--text-muted)", fontSize: "0.875rem" }}
+                >
+                  <Icon size={14} style={{ color: "var(--accent)", flexShrink: 0 }} />
+                  {text}
+                </div>
+              ))}
+            </div>
+
+            {/* Divider */}
+            <div className="divider" />
+
+            {/* Socials */}
+            <div className="space-y-4">
+              {socials.map(({ Icon, label, href, handle }, i) => (
+                <motion.a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: 0.2 + i * 0.08 }}
+                  className="group flex items-center justify-between border-b py-3 transition-colors duration-200"
+                  style={{ borderColor: "var(--border-light)" }}
+                >
+                  <div className="flex items-center gap-3">
+                    <Icon
+                      size={16}
+                      className="transition-colors duration-200"
+                      style={{ color: "var(--text-muted)" }}
+                    />
+                    <span
+                      className="font-body transition-colors duration-200 group-hover:text-[var(--accent)]"
+                      style={{ fontSize: "0.875rem" }}
+                    >
+                      {handle}
+                    </span>
+                  </div>
+                  <span
+                    className="font-mono-custom text-xs opacity-0 transition-opacity duration-200 group-hover:opacity-100"
+                    style={{ color: "var(--accent)" }}
+                  >
+                    ↗
+                  </span>
+                </motion.a>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Footer */}
+        <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
           viewport={{ once: true }}
-          className="mt-20 font-body text-xs uppercase tracking-widest text-muted-foreground"
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="mt-24 flex items-center justify-between border-t pt-8"
+          style={{ borderColor: "var(--border-light)" }}
         >
-          Créé avec passion & curiosité
-        </motion.p>
+          <p className="font-mono-custom text-xs" style={{ color: "var(--text-muted)" }}>
+            © 2025 Paul-Joseph Krogulec
+          </p>
+          <p className="font-mono-custom text-xs" style={{ color: "var(--text-muted)" }}>
+            Construit avec Next.js + Tailwind
+          </p>
+        </motion.div>
       </div>
     </section>
   );
-};
-
-export default ContactSection;
+}
