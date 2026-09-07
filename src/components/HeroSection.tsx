@@ -101,6 +101,16 @@ export default function HeroSection() {
           <span style={{ color: "var(--text)" }}>Symfony</span> et{" "}
           <span style={{ color: "var(--text)" }}>API Platform</span>, soucieux
           de la qualité et en constante veille.
+          <br />
+          <a
+            href="https://api-platform.com/community/contributors/pauljosephkrogulec/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover-accent transition-colors duration-200"
+            style={{ color: "var(--accent)" }}
+          >
+            Contributeur officiel API Platform ↗
+          </a>
         </motion.p>
 
         <motion.div
