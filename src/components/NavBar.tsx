@@ -32,9 +32,8 @@ export default function NavBar() {
           className="font-display text-xl tracking-wider"
           style={{ color: "var(--accent)" }}
         >
-          
-        </a>
           Paul-Joseph Krogulec
+        </a>
         <nav className="flex items-center gap-8">
           {links.map((link) => (
             <a
