@@ -1,11 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Github, Twitter, Mail, MapPin, Phone } from "lucide-react";
+import { Github, Twitter, Mail, MapPin, Phone, Award } from "lucide-react";
 
 const socials = [
   { Icon: Github, label: "GitHub", href: "https://github.com/pauljosephkrogulec", handle: "pauljosephkrogulec" },
   { Icon: Twitter, label: "Twitter / X", href: "http://x.com/Paul_josephK", handle: "@Paul_josephK" },
+  { Icon: Award, label: "API Platform", href: "https://api-platform.com/community/contributors/pauljosephkrogulec/", handle: "Contributor" },
   { Icon: Mail, label: "Email", href: "mailto:krogulec.work@gmail.com", handle: "krogulec.work@gmail.com" },
 ];
 

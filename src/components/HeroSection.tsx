@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { Github, Twitter, Mail } from "lucide-react";
+import { Github, Twitter, Mail, Award } from "lucide-react";
 
 const roles = ["Développeur Back-End", "Symfony Expert", "API Platform"];
 
@@ -126,6 +126,7 @@ export default function HeroSection() {
           {[
             { Icon: Github, href: "https://github.com/pauljosephkrogulec", label: "GitHub" },
             { Icon: Twitter, href: "http://x.com/Paul_josephK", label: "Twitter" },
+            { Icon: Award, href: "https://api-platform.com/community/contributors/pauljosephkrogulec/", label: "API Platform Contributor" },
             { Icon: Mail, href: "mailto:krogulec.work@gmail.com", label: "Email" },
           ].map(({ Icon, href, label }) => (
             <a
