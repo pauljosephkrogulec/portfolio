@@ -61,7 +61,7 @@ export default function HeroSection() {
           transition={{ duration: 0.4 }}
           className="mb-6 section-label"
         >
-          {"// Portfolio — 2025"}
+          {"// Portfolio — 2026"}
         </motion.div>
 
         <motion.h1

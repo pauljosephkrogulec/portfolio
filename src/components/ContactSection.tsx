@@ -134,7 +134,7 @@ export default function ContactSection() {
           style={{ borderColor: "var(--border-light)" }}
         >
           <p className="font-mono-custom text-xs" style={{ color: "var(--text-muted)" }}>
-            © 2025 Paul-Joseph Krogulec
+            © 2026 Paul-Joseph Krogulec
           </p>
           <p className="font-mono-custom text-xs" style={{ color: "var(--text-muted)" }}>
             Construit avec Next.js + Tailwind
