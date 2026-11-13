@@ -6,6 +6,7 @@ const links = [
   { label: "À Propos", href: "#about" },
   { label: "Projets", href: "#projects" },
   { label: "Contact", href: "#contact" },
+  { label: "Maison 3D", href: "/" },
 ];
 
 export default function NavBar() {

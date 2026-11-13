@@ -1,44 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-
-const skills = [
-  { category: "Backend", items: ["PHP 8.4", "Symfony", "API Platform", "Messenger", "Doctrine"] },
-  { category: "Frontend", items: ["JavaScript", "TypeScript", "React", "jQuery"] },
-  { category: "DevOps", items: ["Git", "Docker", "CI/CD", "Bash"] },
-  { category: "Databases", items: ["MySQL", "PostgreSQL"] },
-  { category: "Tests", items: ["PHPUnit", "Playwright"] },
-  { category: "Qualité", items: ["SOLID", "RGPD", "Sécurité", "Code Review"] },
-];
-
-const experiences = [
-  {
-    company: "SOGEC MARKETING",
-    position: "Développeur Back-End",
-    period: "Fév. 2024 — Oct. 2024",
-    tasks: [
-      "Intégration de tâches asynchrones via Symfony Messenger sur toutes les plateformes",
-      "Sécurisation du projet : gestion d'accès, RGPD, vérification des fichiers entrants",
-      "Optimisation des requêtes SQL",
-    ],
-  },
-  {
-    company: "LES-TILLEULS.COOP",
-    position: "Développeur Back-End",
-    period: "Août 2021 — Déc. 2023",
-    tasks: [
-      "ASN Téléservices : application pour entreprises avec matériel nucléaire, déclarations d'accidents",
-      "Résolution de bugs sur code legacy, création d'API et webservices",
-      "eTools : outil d'administration pour boulangeries industrielles",
-      "TMA sur CMS multisites réseau d'autopartage (Symfony + Sonata Page)",
-    ],
-  },
-];
-
-const education = [
-  { institution: "Faculté de Lens", degree: "Licence Informatique", period: "2019 — 2021" },
-  { institution: "Lycée André Malraux", degree: "BTS SIO option SLAM", period: "2017 — 2019" },
-];
+import { education, experiences, skills } from "@/data/portfolio";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 32 },

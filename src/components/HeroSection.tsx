@@ -15,7 +15,7 @@ export default function HeroSection() {
   const [roleIndex, setRoleIndex] = useState(0);
   const [displayed, setDisplayed] = useState("");
   const [typing, setTyping] = useState(true);
-  const timeoutRef = useRef<ReturnType<typeof setTimeout>>();
+  const timeoutRef = useRef<ReturnType<typeof setTimeout>>(undefined);
   const isMobile = useIsMobile();
   const reducedMotion = useReducedMotion();
 

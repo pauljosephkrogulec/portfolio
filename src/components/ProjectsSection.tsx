@@ -3,19 +3,7 @@
 import { motion } from "framer-motion";
 import { Github, ExternalLink, AlertTriangle } from "lucide-react";
 import TiltCard from "@/components/TiltCard";
-
-const projects = [
-  {
-    number: "01",
-    title: "MangaDex",
-    status: "En développement",
-    description:
-      "Plateforme de lecture de manga full-stack. Frontend PWA avec Next.js 15 et React 19, backend API robuste avec Symfony 7.2 et API Platform. Mises à jour en temps réel, interface d'administration automatique, support REST, GraphQL et Hydra.",
-    tech: ["PHP 8.4", "Symfony 7.2", "API Platform", "Next.js 15", "React 19", "TypeScript", "PostgreSQL", "Docker", "Kubernetes", "Tailwind CSS"],
-    githubUrl: "https://github.com/pauljosephkrogulec/mangadex",
-    liveUrl: null,
-  },
-];
+import { projects } from "@/data/portfolio";
 
 export default function ProjectsSection() {
   return (
