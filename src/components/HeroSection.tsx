@@ -1,8 +1,13 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
+import dynamic from "next/dynamic";
+import { motion, useReducedMotion } from "framer-motion";
 import { Github, Twitter, Mail, Award } from "lucide-react";
+import { useIsMobile } from "@/hooks/use-mobile";
+
+// three.js is client-only and heavy: keep it out of SSR and the initial bundle
+const HeroScene = dynamic(() => import("./three/HeroScene"), { ssr: false });
 
 const roles = ["Développeur Back-End", "Symfony Expert", "API Platform"];
 
@@ -11,6 +16,8 @@ export default function HeroSection() {
   const [displayed, setDisplayed] = useState("");
   const [typing, setTyping] = useState(true);
   const timeoutRef = useRef<ReturnType<typeof setTimeout>>();
+  const isMobile = useIsMobile();
+  const reducedMotion = useReducedMotion();
 
   useEffect(() => {
     const current = roles[roleIndex];
@@ -39,14 +46,20 @@ export default function HeroSection() {
 
   return (
     <section className="relative flex h-screen flex-col justify-center overflow-hidden grid-bg px-6">
-      {/* Background big text */}
-      <div
-        className="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 select-none font-display text-[22vw] leading-none opacity-[0.025]"
-        style={{ color: "var(--accent)" }}
+      {/* 3D scene */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: isMobile ? 0.35 : 1 }}
+        transition={{ duration: 1.2, delay: 0.3 }}
+        className="pointer-events-none absolute inset-0 md:left-1/3"
         aria-hidden
       >
-        {"</>"}
-      </div>
+        <HeroScene
+          particleCount={isMobile ? 15 : 40}
+          maxDpr={isMobile ? 1.25 : 1.75}
+          reducedMotion={!!reducedMotion}
+        />
+      </motion.div>
 
       {/* Decorative vertical line */}
       <div
@@ -54,7 +67,7 @@ export default function HeroSection() {
         style={{ background: "var(--border-light)" }}
       />
 
-      <div className="mx-auto w-full max-w-7xl">
+      <div className="relative z-10 mx-auto w-full max-w-7xl">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

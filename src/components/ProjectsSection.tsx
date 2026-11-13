@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Github, ExternalLink, AlertTriangle } from "lucide-react";
+import TiltCard from "@/components/TiltCard";
 
 const projects = [
   {
@@ -56,18 +57,19 @@ export default function ProjectsSection() {
               className="group relative border-b py-14"
               style={{ borderColor: "var(--border-light)" }}
             >
+              <TiltCard>
               {/* Large background number */}
               <span
-                className="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 select-none font-display leading-none opacity-[0.04] transition-opacity duration-500 group-hover:opacity-[0.08]"
-                style={{ fontSize: "12rem", color: "var(--accent)" }}
+                className="pointer-events-none absolute right-0 top-1/2 select-none font-display leading-none opacity-[0.04] transition-opacity duration-500 group-hover:opacity-[0.08]"
+                style={{ fontSize: "12rem", color: "var(--accent)", transform: "translateY(-50%) translateZ(-40px)" }}
                 aria-hidden
               >
                 {project.number}
               </span>
 
-              <div className="relative grid gap-10 md:grid-cols-[1fr_1.6fr]">
+              <div className="relative grid gap-10 [transform-style:preserve-3d] md:grid-cols-[1fr_1.6fr]">
                 {/* Left column */}
-                <div>
+                <div className="[transform-style:preserve-3d]">
                   <div className="flex items-center gap-3 mb-4">
                     <span
                       className="font-mono-custom text-xs tracking-widest"
@@ -96,7 +98,7 @@ export default function ProjectsSection() {
 
                   <h3
                     className="font-display mb-6 transition-colors duration-300 group-hover:text-[var(--accent-bright)]"
-                    style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", lineHeight: 1, color: "var(--text)" }}
+                    style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", lineHeight: 1, color: "var(--text)", transform: "translateZ(30px)" }}
                   >
                     {project.title}
                   </h3>
@@ -145,6 +147,7 @@ export default function ProjectsSection() {
                   </div>
                 </div>
               </div>
+              </TiltCard>
             </motion.article>
           ))}
         </div>
